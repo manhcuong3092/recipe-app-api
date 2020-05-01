@@ -15,7 +15,7 @@ class AdminSiteTests(TestCase):
         self.user = get_user_model().objects.create_user(
             email='test@gmail.com',
             password='password123',
-            name='Test user full name'
+            name='Test users full name'
         )
 
     def test_users_listed(self):
@@ -27,15 +27,15 @@ class AdminSiteTests(TestCase):
         self.assertContains(res, self.user.email)
 
     def test_user_change_page(self):
-        """Test that the user edit page works"""
+        """Test that the users edit page works"""
         url = reverse('admin:core_user_change', args=[self.user.id])
-        # /admin/core/user/1
+        # /admin/core/users/1
         res = self.client.get(url)
 
         self.assertEqual(res.status_code, 200)
 
     def test_create_user_page(self):
-        """Test that the create user page works"""
+        """Test that the create users page works"""
         url = reverse('admin:core_user_add')
         res = self.client.get(url)
 

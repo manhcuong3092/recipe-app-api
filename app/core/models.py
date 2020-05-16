@@ -8,7 +8,7 @@ import os
 
 def recipe_image_file_path(instance, filename):
     """Generate file path for new recipe image"""
-    ext = filename.split('.')[-1]   # extendsion
+    ext = filename.split('.')[-1]   # extension
     filename = f'{uuid.uuid4()}.{ext}'
 
     return os.path.join('upload/recipe/', filename)
